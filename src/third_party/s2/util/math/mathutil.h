@@ -8,6 +8,7 @@
 #define UTIL_MATH_MATHUTIL_H__
 
 #include <math.h>
+#include <cmath>
 #include <algorithm>
 using std::min;
 using std::max;
@@ -425,7 +426,10 @@ class MathUtil {
 
   // Return Not a Number.
   // Consider instead using MathLimits<double>::kNaN directly.
-  static double NaN() { return MathLimits<double>::kNaN; }
+  static double NaN() {
+      return nan("");
+      // return MathLimits<double>::kNaN;
+  }
 
   // the sine cardinal function
   static double Sinc(double x) {

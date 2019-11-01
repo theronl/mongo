@@ -329,7 +329,7 @@ namespace mongo {
     }
 
     void DBClientCursor::kill() {
-        if (!this)
+        if (((void*)this) == NULL)
             return;
 
         DESTRUCTOR_GUARD (

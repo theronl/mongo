@@ -292,7 +292,7 @@ namespace mongo {
             _finishedInit = true;
         }
         
-        bool ok() const { return _conn > 0; }
+        bool ok() const { return _conn != NULL; }
 
         /**
            this just passes through excpet it checks for stale configs

@@ -827,9 +827,9 @@ class CodeRange {
   // manage it.
   void TearDown();
 
-  bool exists() { return this != NULL && code_range_ != NULL; }
+  bool exists() { return ((void*)this) != NULL && code_range_ != NULL; }
   bool contains(Address address) {
-    if (this == NULL || code_range_ == NULL) return false;
+    if (((void*)this) == NULL || code_range_ == NULL) return false;
     Address start = static_cast<Address>(code_range_->address());
     return start <= address && address < start + code_range_->size();
   }

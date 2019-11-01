@@ -128,7 +128,8 @@ namespace mongo {
          * @param haystack, raw string to be parsed
          */
         bool FTSMatcher::_phraseMatches( const string& phrase, const string& haystack ) const {
-            return strcasestr( haystack.c_str(), phrase.c_str() ) > 0;
+            char *cp = strcasestr( haystack.c_str(), phrase.c_str() );
+            return cp != NULL && *cp > 0;
         }
     }
 }
